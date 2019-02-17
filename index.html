@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="style.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="headerContainer">
+			<div class="logo">
+				<a href="#"><img src="img/logo.png" alt=""></a>
+			</div>
+			<div class="phone"><p>Call Us: 0548 784 44 66</p></div>
+			<div class="slide">
+			<img src="img/slide.jpg" alt="" width="">
+<div class="text">
+
+	<h1>March into the Sea</h1>
+			<p>  Morbi sed lectus nibh ut velest elit. Curabitur at mauris at velit laoreet sedat odio. Nam ut biben sagittis tortora volutpat. Etiam nonet leo purus,elementum libero. Aenean vitae quam leo mure rutrum.
+<ul>
+	<li>
+		Curabitur at mauris
+	</li>
+	<li>
+		Nam biben sagittis tortora
+	</li>
+	<li>
+		Etiam non leo elementum
+	</li>
+</ul>
+			</p>
+	
+		<form>
+  <button>Go to link</button>
+</form>
+			
+</div>
+</div>
+</div>
+			</div>
+
+
+
+</div>
+
+<div class="slider">
+	 <div class="slide-list">
+    <div class="slide-wrap">
+	
+	       <div class="slide-item">
+        <img src="img/comn1.jpg" alt="" />
+        <span class="slide-title"></span>
+      </div>
+      <div class="slide-item">
+        <img src="img/comn1.jpg" alt="" />
+        <span class="slide-title"></span>
+      </div>
+      <div class="slide-item">
+        <img src="img/comn1.jpg" alt="" />
+        <span class="slide-title"></span>
+      </div>
+      		
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div name="prev" class="navy prev-slide"></div>
+  <div name="next" class="navy next-slide"></div>
+  <div class="auto play"></div>
+  <script type="text/javascript">
+jQuery(document).ready(function(){
+ function htmSlider(){
+  /* Зададим следующие параметры */
+  /* обертка слайдера */
+  var slideWrap = jQuery('.slide-wrap');
+  /* кнопки вперед/назад и старт/пауза */
+  var nextLink = jQuery('.next-slide');
+  var prevLink = jQuery('.prev-slide');
+  var playLink = jQuery('.auto');
+  /* Проверка на анимацию */
+  var is_animate = false;
+  /* ширина слайда с отступами */
+  var slideWidth = jQuery('.slide-item').outerWidth();
+  /* смещение слайдера */
+  var scrollSlider = slideWrap.position().left - slideWidth;
+		
+  /* Клик по ссылке на следующий слайд */
+  nextLink.click(function(){
+   if(!slideWrap.is(':animated')) {
+    slideWrap.animate({left: scrollSlider}, 500, function(){
+     slideWrap
+      .find('.slide-item:first')
+      .appendTo(slideWrap)
+      .parent()
+      .css({'left': 0});
+    });
+   }
+  });
+
+  /* Клик по ссылке на предыдующий слайд */
+  prevLink.click(function(){
+   if(!slideWrap.is(':animated')) {
+    slideWrap
+     .css({'left': scrollSlider})
+     .find('.slide-item:last')
+     .prependTo(slideWrap)
+     .parent()
+     .animate({left: 0}, 500);
+   }
+  });
+		
+  /* Функция автоматической прокрутки слайдера */
+  function autoplay(){
+   if(!is_animate){
+    is_animate = true;
+    slideWrap.animate({left: scrollSlider}, 500, function(){
+     slideWrap
+      .find('.slide-item:first')
+      .appendTo(slideWrap)
+      .parent()
+      .css({'left': 0});
+     is_animate = false;
+    });
+   }
+  }
+		
+  /* Клики по ссылкам старт/пауза */
+  playLink.click(function(){
+   if(playLink.hasClass('play')){
+    /* Изменяем клас у кнопки на клас паузы */
+	playLink.removeClass('play').addClass('pause');
+    /* Добавляем кнопкам вперед/назад клас который их скрывает */
+    jQuery('.navy').addClass('disable');
+    /* Инициализируем функцию autoplay() через переменную
+       чтобы потом можно было ее отключить
+	*/
+    timer = setInterval(autoplay, 1000);
+   } else {
+    playLink.removeClass('pause').addClass('play');
+	/* показываем кнопки вперед/назад */
+    jQuery('.navy').removeClass('disable');
+    /* Отключаем функцию autoplay() */
+    clearInterval(timer);
+   }
+  });
+
+ }
+ 
+ /* иницилизируем функцию слайдера */
+ htmSlider();
+});
+</script>
+</div>
+<div class="content">
+	
+	<div class="topContent">
+		
+<p>Mauris sodales risus non enim tempor euro mat vehicula metus porta. Fusce eget molestie urna. Maecenas eu condimentum sem. Fusce in odio vitae risus tincidunt feugiat idet augue.</p>
+	</div>
+	<div class="textcontent">
+<ul>
+		<li> <img src="img/ico1.ico" alt="textcontent" width="50px" height="50px"><p><b>Vestibulum tellus consequat</b></p>
+		<p>Nunc sed quam mi, at bibendum leo. Fusce a lacus ligula. Vestibulum sollicitudin ultricesy viverra dolor egestas at. Aliquam congue, nec fringilla augue faucibus at. Nam at itaculis posuere justo, a rutrum urna lacinia non</p></li>
+		<li><img src="img/ico2.ico" alt="textcontent" width="50px" height="50px"><p><b>Cras commodo lacinia turpis</b></p>
+		<p>Suspendisse dui velit, fermentum vitae alam vitae, consequat et ligula. Nam molestie at venenatis dignissim. Pellentesque nec purus ipsum, vel elementum ante. Cras eu mi lectu sedo non sapien massa.</p></li>
+
+		<li><img src="img/ico3.ico" alt="textcontent" width="50px" height="50px"><p><b>Etiam volutpat porta magna</b></p>
+		<p>Integer id nunc eu felis vulputate posuere sit amet blandit mauris. Suspendisse condintum sem rhoncus dolor sodales ultricies. In velvur fringilla leo. Vestibulum sagittis, est at phare dapibus, libero nulla facilisis ligula.</p></li>
+</ul>
+
+	</div>
+	<div class="about">
+				<p>Here's what our customers are saying about MeegoFurn.</p>
+		<ul>
+			<li style="
+    padding-bottom: 30px;
+"><p>Suspendisse quis turpis fringilla sollicitudin consequat vel eget nisl. Duis sedut sodales velit. Duis bibendum fermetum lorem, quis pharetra augue sagittis ac. 
+by Tery Mandalay </p></li>
+			<li style="
+    padding-bottom: 80px;
+">Suspendisse quis turpis fringilla sollicitudin consequat vel eget nisl. Duis sedut sodales velit.  In hac habitasse platea dictumst etiam 
+				<br>
+by Anna Hateway </li>
+		</ul>
+		<div class="contact">
+		<form action="#">
+			<input type="text"style="
+    margin-left: 96px;
+    padding: 0px">
+			<input type="submit">
+		</form>
+	</div>
+	</div>
+
+</div>
+	</div>
+
+
+
+
+</body>
+</html>
